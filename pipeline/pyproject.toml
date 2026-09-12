@@ -8,13 +8,28 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "jupyterlab-lsp>=5.3.0",
     "pandas>=3.0.5",
+    "psycopg2-binary>=2.9.13",
     "pyarrow>=25.0.1",
+    "python-lsp-server>=1.15.0",
+    "sqlalchemy>=2.0.52",
+    "tqdm>=4.70.0",
 ]
 
-[project.scripts]
-pipeline = "pipeline:main"
+# [project.scripts]
+# pipeline = "pipeline:main"
 
-[build-system]
-requires = ["uv_build>=0.12.9,<0.13.0"]
-build-backend = "uv_build"
+# [build-system]
+# requires = ["uv_build>=0.12.9,<0.13.0"]
+# build-backend = "uv_build"
+
+# This addition is proposed by Gemini:
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "pgcli>=4.6.0",
+]
